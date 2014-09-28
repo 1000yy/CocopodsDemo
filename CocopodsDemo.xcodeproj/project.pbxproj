@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5512E7F6493F4E80B691AEF8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B4F30AC59C4A9C9BD323A8 /* libPods.a */; };
 		FCA88C9D19AB362900B58B86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA88C9C19AB362900B58B86 /* Foundation.framework */; };
 		FCA88C9F19AB362900B58B86 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA88C9E19AB362900B58B86 /* CoreGraphics.framework */; };
 		FCA88CA119AB362900B58B86 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA88CA019AB362900B58B86 /* UIKit.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29B4F30AC59C4A9C9BD323A8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A130B69875FF44558728CCEC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		FCA88C9919AB362900B58B86 /* CocopodsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocopodsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA88C9C19AB362900B58B86 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCA88C9E19AB362900B58B86 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,6 +66,7 @@
 				FCA88C9F19AB362900B58B86 /* CoreGraphics.framework in Frameworks */,
 				FCA88CA119AB362900B58B86 /* UIKit.framework in Frameworks */,
 				FCA88C9D19AB362900B58B86 /* Foundation.framework in Frameworks */,
+				5512E7F6493F4E80B691AEF8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +90,7 @@
 				FCA88CC119AB362900B58B86 /* CocopodsDemoTests */,
 				FCA88C9B19AB362900B58B86 /* Frameworks */,
 				FCA88C9A19AB362900B58B86 /* Products */,
+				A130B69875FF44558728CCEC /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +110,7 @@
 				FCA88C9E19AB362900B58B86 /* CoreGraphics.framework */,
 				FCA88CA019AB362900B58B86 /* UIKit.framework */,
 				FCA88CBB19AB362900B58B86 /* XCTest.framework */,
+				29B4F30AC59C4A9C9BD323A8 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,9 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCA88CCB19AB362900B58B86 /* Build configuration list for PBXNativeTarget "CocopodsDemo" */;
 			buildPhases = (
+				1F1BB67761A54F1D9757C01F /* Check Pods Manifest.lock */,
 				FCA88C9519AB362900B58B86 /* Sources */,
 				FCA88C9619AB362900B58B86 /* Frameworks */,
 				FCA88C9719AB362900B58B86 /* Resources */,
+				339820309A9A43BCBB2FF678 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,6 +251,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F1BB67761A54F1D9757C01F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		339820309A9A43BCBB2FF678 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FCA88C9519AB362900B58B86 /* Sources */ = {
@@ -373,12 +414,14 @@
 		};
 		FCA88CCC19AB362900B58B86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A130B69875FF44558728CCEC /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocopodsDemo/CocopodsDemo-Prefix.pch";
 				INFOPLIST_FILE = "CocopodsDemo/CocopodsDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -386,12 +429,14 @@
 		};
 		FCA88CCD19AB362900B58B86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A130B69875FF44558728CCEC /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocopodsDemo/CocopodsDemo-Prefix.pch";
 				INFOPLIST_FILE = "CocopodsDemo/CocopodsDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -456,6 +501,7 @@
 				FCA88CCD19AB362900B58B86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FCA88CCE19AB362900B58B86 /* Build configuration list for PBXNativeTarget "CocopodsDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +510,7 @@
 				FCA88CD019AB362900B58B86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
